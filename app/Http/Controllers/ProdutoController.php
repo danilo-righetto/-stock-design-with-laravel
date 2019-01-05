@@ -2,24 +2,15 @@
 
 namespace estoque\Http\Controllers;
 
-use DB;
+use Illuminate\Support\Facades\DB;
+use estoque\Produto;
 
 class ProdutoController extends Controller
 {
     public function lista()
     {
-        $html = '<h1>Listagem de produtos</h1>';
-
-        $html .= '<ul>';
-
         $produtos = DB::select('select * from jogos');
 
-        foreach($produtos as $produto) {
-            $html .= '<li>Nome: '. $produto->nome .', Descrição: '. $produto->descricao .'</li>';
-        }
-
-        $html .= '</ul>';
-
-        return $html;
+        return view('listagem')->with('produtos', $produtos);
     }
 }
