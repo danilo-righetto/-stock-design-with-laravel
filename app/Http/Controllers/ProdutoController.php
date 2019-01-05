@@ -12,7 +12,7 @@ class ProdutoController extends Controller
     {
         $produtos = DB::select('select * from jogos');
 
-        return view('listagem')->with('produtos', $produtos);
+        return view('produto.listagem')->with('produtos', $produtos); // ou return view('produto/listagem')...
     }
 
     public function mostra()
@@ -25,6 +25,6 @@ class ProdutoController extends Controller
             return '<h3>O produto não existe!</h3>';
         }
        
-        return view('detalhes')->with('produto', $produto[0]);
+        return view('produto.detalhes')->with('produto', $produto[0]);
     }
 }
