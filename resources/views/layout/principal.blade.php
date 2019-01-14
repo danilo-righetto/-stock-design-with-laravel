@@ -1,5 +1,5 @@
 <html>
-    <head></head>
+    <head>
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/custom.css">
         <!-- Latest compiled and minified CSS -->
