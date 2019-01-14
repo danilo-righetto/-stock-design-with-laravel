@@ -44,6 +44,12 @@ class ProdutoController extends Controller
 
         DB::insert('insert into jogos (nome, preco, quantidade, descricao, genero, compatibilidade) values (?,?,?,?,?,?)', array($nome, $valor, $quantidade, $descricao, $genero, $compatibilidade));
 
-        return redirect('/produtos');
+        return redirect('/produtos')->withInput(); // withInput recupera todos os dados da requisição anterior 
+    }
+
+    public function json()
+    {
+        $produtos = DB::select('select * from jogos');
+        return $produtos; // Ou return response()->json($produtos);
     }
 }
