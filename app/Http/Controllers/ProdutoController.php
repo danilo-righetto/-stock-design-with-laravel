@@ -32,4 +32,17 @@ class ProdutoController extends Controller
     {
         return view('produto.formulario');
     }
+
+    public function adiciona()
+    {
+        $nome = Request::input('nome');
+        $valor = Request::input('valor');
+        $quantidade = Request::input('quantidade');
+        $descricao = Request::input('descricao');
+        $genero = Request::input('genero');
+
+        DB::insert('insert into jogos (nome, preco, quantidade, descricao, genero) values (?,?,?,?,?)', array($nome, $valor, $quantidade, $descricao, $genero));
+
+        return redirect('/produtos');
+    }
 }
