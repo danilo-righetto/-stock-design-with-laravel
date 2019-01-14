@@ -40,8 +40,9 @@ class ProdutoController extends Controller
         $quantidade = Request::input('quantidade');
         $descricao = Request::input('descricao');
         $genero = Request::input('genero');
+        $compatibilidade = Request::input('compatibilidade');
 
-        DB::insert('insert into jogos (nome, preco, quantidade, descricao, genero) values (?,?,?,?,?)', array($nome, $valor, $quantidade, $descricao, $genero));
+        DB::insert('insert into jogos (nome, preco, quantidade, descricao, genero, compatibilidade) values (?,?,?,?,?,?)', array($nome, $valor, $quantidade, $descricao, $genero, $compatibilidade));
 
         return redirect('/produtos');
     }

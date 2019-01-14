@@ -3,6 +3,8 @@
 @section('content')
 
     <form action="/produtos/adiciona" method="post">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
         <div class="form-group">
             <label for="nome">Nome:</label>
             <input name="nome" id="nome" type="text" class="form-control"/>
@@ -16,6 +18,11 @@
         <div class="form-group">
             <label for="genero">Gênero:</label>
             <input name="genero" id="genero" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="compatibilidade">Compatibilidade:</label>
+            <input name="compatibilidade" id="compatibilidade" type="text" class="form-control">
         </div>
 
         <div class="form-group">
