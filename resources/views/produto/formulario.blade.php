@@ -11,8 +11,8 @@
         </div>
 
         <div class="form-group">
-            <label for="valor">Valor:</label>
-            <input name="valor" id="valor" type="number" class="form-control"/>
+            <label for="preco">Valor:</label>
+            <input name="preco" id="preco" type="number" class="form-control"/>
         </div>
 
         <div class="form-group">

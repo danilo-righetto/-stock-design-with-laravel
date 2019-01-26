@@ -22,6 +22,11 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </a>
                     </td>
+                    <td id="middle">
+                        <a href="/produtos/remove/{{ $produto->id }}">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </table>
