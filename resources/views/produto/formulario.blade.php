@@ -32,6 +32,11 @@
         </div>
 
         <div class="form-group">
+            <label for="tamanho">Tamanho:</label>
+            <input name="tamanho" id="tamanho" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
             <label for="descricao">Descrição:</label>
             <textarea name="descricao" id="descricao" cols="30" rows="5" class="form-control"></textarea>
         </div>

@@ -28,6 +28,10 @@
             <li>
                 <b>Quantidade: </b> {{ $produto->quantidade }}
             </li>
+
+            <li>
+                <b>Dimensões: </b> {{ $produto->tamanho }}
+            </li>
         </ul>
     @endif
 @endsection
