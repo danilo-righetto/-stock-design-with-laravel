@@ -3,6 +3,12 @@
 @section('content')
     <h1>Listagem dos produtos</h1>
 
+    @if(old('nome'))
+        <div class="alert alert-success">
+            O produto <b>{{ old('nome') }}</b> foi adicionado com sucesso    
+        </div>
+    @endif
+    
     @if(empty($produtos))
         <div class="alert alert-danger">
             <p>Nenhum produto cadastrado.</p>
@@ -37,10 +43,4 @@
             Um ou menos itens no estoque
         </span>
     </h4>
-
-    @if(old('nome'))
-        <div class="alert alert-success">
-            O produto <b>{{ old('nome') }}</b> foi adicionado com sucesso    
-        </div>
-    @endif
 @endsection        
