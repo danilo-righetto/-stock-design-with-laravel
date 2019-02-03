@@ -1,7 +1,7 @@
 @extends('layout.principal')
 
 @section('content')
-    <h1>Listagem dos produtos</h1>
+    <h1 style="padding: 20px;">Listagem dos produtos</h1>
 
     @if(old('nome'))
         <div class="alertSuccessNewProduct alert alert-success">
@@ -27,26 +27,40 @@
         </div>    
     @else
         <table class="table table-bordered table-hover">
-            @foreach ($produtos as $produto)
-                <tr class="{{ $produto->quantidade <= 1 ? 'danger' : '' }}">
-                    <td id="middle" class="oneRow">{{ $produto->nome }}</td>
-                    <td>{{ substr($produto->descricao, 0, 80)."..." }}</td>
-                    <td id="middle" class="oneRow">{{ $produto->compatibilidade }}</td>
-                    <td id="middle">{{ $produto->genero }}</td>
-                    <td id="middle">{{ number_format($produto->preco, 2, ',', '.') }}</td>
-                    <td id="middle">{{ $produto->quantidade }}</td>
-                    <td id="middle">
-                        <a href="/produtos/mostra/{{ $produto->id }}">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </a>
-                    </td>
-                    <td id="middle">
-                        <a href="/produtos/remove/{{ $produto->id }}">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </a>
-                    </td>
+            <thead>
+                <tr class="theadTable">
+                    <th class="textWhite">Nome</th>
+                    <th class="textWhite">Descrição</th>
+                    <th class="textWhite">Compatibilidade</th>
+                    <th class="textWhite">Gênero</th>
+                    <th class="textWhite">Valor</th>
+                    <th class="textWhite">Quantidade</th>
+                    <th class="textWhite">...</th>
+                    <th class="textWhite">...</th>
                 </tr>
-            @endforeach
+            </thead>
+            <tbody>
+                @foreach ($produtos as $produto)
+                    <tr class="{{ $produto->quantidade <= 1 ? 'danger' : '' }}">
+                        <td id="middle" class="oneRow">{{ $produto->nome }}</td>
+                        <td>{{ substr($produto->descricao, 0, 80)."..." }}</td>
+                        <td id="middle" class="oneRow">{{ $produto->compatibilidade }}</td>
+                        <td id="middle">{{ $produto->genero }}</td>
+                        <td id="middle">{{ number_format($produto->preco, 2, ',', '.') }}</td>
+                        <td id="middle">{{ $produto->quantidade }}</td>
+                        <td id="middle">
+                            <a href="/produtos/mostra/{{ $produto->id }}">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                        <td id="middle">
+                            <a href="/produtos/remove/{{ $produto->id }}">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     @endif
 

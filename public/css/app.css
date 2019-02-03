@@ -17,3 +17,9 @@
 }
 
 /* View Listagem.php */
+.theadTable {
+    background: #000;
+}
+.textWhite {
+    color: #fff;
+}
