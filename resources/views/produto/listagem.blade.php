@@ -4,9 +4,21 @@
     <h1>Listagem dos produtos</h1>
 
     @if(old('nome'))
-        <div class="alert alert-success">
-            O produto <b>{{ old('nome') }}</b> foi adicionado com sucesso    
+        <div class="alertSuccessNewProduct alert alert-success">
+            O produto <b>{{ old('nome') }}</b> foi adicionado com sucesso!!! 
         </div>
+
+        <script>
+            $('.alertSuccessNewProduct').addClass('animated bounceInLeft');
+
+            setTimeout(function() {
+                $('.alertSuccessNewProduct').removeClass('bounceInLeft').addClass('bounceOutLeft');
+            }, 3000);
+
+            setTimeout(function() {
+                $('.alertSuccessNewProduct').remove();    
+            }, 3500);
+        </script>
     @endif
     
     @if(empty($produtos))
