@@ -1,7 +1,8 @@
 @extends('layout.principal')
 
 @section('content')
-
+    <h2>Adicione um novo produto</h2>
+    
     <form action="/produtos/adiciona" method="post">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
