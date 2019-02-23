@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use estoque\Produto;
 use estoque\Jogo;
 use Request;
+use estoque\Http\Requests\ProdutoRequest;
 
 class ProdutoController extends Controller
 {
@@ -32,33 +33,8 @@ class ProdutoController extends Controller
         return view('produto.formulario');
     }
 
-    public function adiciona()
+    public function adiciona(ProdutoRequest $request)
     {
-        $validator = \Validator::make(
-            [
-                'nome' => Request::input('nome'),
-                'descricao' => Request::input('descricao'),
-                'compatibilidade' => Request::input('compatibilidade'),
-                'genero' => Request::input('genero'),
-                'preco' => Request::input('preco'),
-                'quantidade' => Request::input('quantidade'),
-                'tamanho' => Request::input('tamanho')
-            ],
-            [
-                'nome' => 'required|min:5',
-                'descricao' => 'required|max:255',
-                'compatibilidade' => 'required',
-                'genero' => 'required',
-                'preco' => 'required|numeric',
-                'quantidade' => 'required|numeric',
-                'tamanho' => 'required'
-            ]
-        );
-
-        if($validator->fails()) {
-            return redirect()->action('ProdutoController@novo');
-        }
-
         $params = Request::all();
         $jogo = new Jogo($params);
         $jogo->save();        
