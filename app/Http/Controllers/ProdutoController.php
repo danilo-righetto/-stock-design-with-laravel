@@ -34,6 +34,31 @@ class ProdutoController extends Controller
 
     public function adiciona()
     {
+        $validator = \Validator::make(
+            [
+                'nome' => Request::input('nome'),
+                'descricao' => Request::input('descricao'),
+                'compatibilidade' => Request::input('compatibilidade'),
+                'genero' => Request::input('genero'),
+                'preco' => Request::input('preco'),
+                'quantidade' => Request::input('quantidade'),
+                'tamanho' => Request::input('tamanho')
+            ],
+            [
+                'nome' => 'required|min:5',
+                'descricao' => 'required|max:255',
+                'compatibilidade' => 'required',
+                'genero' => 'required',
+                'preco' => 'required|numeric',
+                'quantidade' => 'required|numeric',
+                'tamanho' => 'required'
+            ]
+        );
+
+        if($validator->fails()) {
+            return redirect()->action('ProdutoController@novo');
+        }
+
         $params = Request::all();
         $jogo = new Jogo($params);
         $jogo->save();        
