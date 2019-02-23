@@ -33,4 +33,12 @@ class ProdutoRequest extends FormRequest
             'tamanho' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'O :attribute é obrigatório',
+            'numeric' => 'O :attribute tem que ser numérico'
+        ];
+    }
 }
