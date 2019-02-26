@@ -17,13 +17,26 @@
                     <a class="navbar-brand" href="/produtos">Estoque Laravel</a>
                 </div>
 
-                <ul class="nav navbar-nav navbar-right col-md-6" style="display: inline-block">
+                <ul class="nav navbar-nav navbar-right col-md-6" style="display:flex; flex-direction: row;">
                     <li>
                         <a href="/produtos">Listagem</a>
                     </li>
                     <li>
                         <a href="/produtos/novo">Novo produto</a>
                     </li>
+                    @if(Auth::guest())
+                        <li>
+                            <a href="/login">Login</a>
+                        </li>
+                        <li>
+                            <a href="/register">Register</a>
+                        </li>
+                    @else
+                        <li><a href=#>{{ Auth::user()->name }}</a></li>
+                        <li>
+                            <a href="/logout">logout</a>
+                        </li>
+                    @endif
                 </ul>
             </nav>
 
