@@ -1,16 +1,16 @@
 @extends('layout.principal')
 
 @section('content')
-    @if(count($errors) > 0)
+    @if(count($errors->all()) > 0)
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li> {{ $error }} </li>
                 @endforeach
             </ul>
         </div>
-    @endif    
-    
+    @endif
+
     <h2>Adicione um novo produto</h2>
     
     <form action="/produtos/adiciona" method="post">
