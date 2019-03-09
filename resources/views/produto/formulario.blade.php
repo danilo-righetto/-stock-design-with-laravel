@@ -47,6 +47,17 @@
         </div>
 
         <div class="form-group">
+            <label for="categoria_id">Categoria:</label>
+            <td id="middle">
+                <select name="categoria_id" id="categoria_id" class="form-control">
+                    @foreach($categorias as $categoria)
+                        <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                    @endforeach
+                </select>
+            </td>
+        </div>
+
+        <div class="form-group">
             <label for="descricao">Descrição:</label>
             <textarea name="descricao" id="descricao" cols="30" rows="5" class="form-control"></textarea>
         </div>

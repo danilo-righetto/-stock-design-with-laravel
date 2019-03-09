@@ -36,6 +36,7 @@
                     <th class="textWhite">Valor</th>
                     <th class="textWhite">Quantidade</th>
                     <th class="textWhite">Dimensões</th>
+                    <th class="textWhite">Categoria</th>
                     <th class="textWhite">...</th>
                     <th class="textWhite">...</th>
                 </tr>
@@ -50,6 +51,7 @@
                         <td id="middle">{{ number_format($produto->preco, 2, ',', '.') }}</td>
                         <td id="middle">{{ $produto->quantidade }}</td>
                         <td id="middle">{{ $produto->tamanho }}</td>
+                        <td id="middle">{{ $produto->categoria->nome }}</td>
                         <td id="middle">
                             <a href="/produtos/mostra/{{ $produto->id }}">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
