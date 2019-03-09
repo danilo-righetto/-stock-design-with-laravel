@@ -45,7 +45,7 @@
                     <tr class="{{ $produto->quantidade <= 1 ? 'danger' : '' }}">
                         <td id="middle" class="oneRow">{{ $produto->nome }}</td>
                         <td>{{ substr($produto->descricao, 0, 80)."..." }}</td>
-                        <td id="middle" class="oneRow">{{ $produto->compatibilidade }}</td>
+                        <td id="middle">{{ $produto->compatibilidade }}</td>
                         <td id="middle">{{ $produto->genero }}</td>
                         <td id="middle">{{ number_format($produto->preco, 2, ',', '.') }}</td>
                         <td id="middle">{{ $produto->quantidade }}</td>
