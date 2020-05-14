@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jogo extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = array('nome', 'descricao', 'compatibilidade', 'genero', 'preco', 'quantidade', 'tamanho', 'categoria_id');
 
     public function categoria()

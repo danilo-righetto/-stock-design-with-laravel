@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AdicionaTamanhoNoProduto extends Migration
+class Categoria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AdicionaTamanhoNoProduto extends Migration
      */
     public function up()
     {
-        Schema::table('jogos', function($table) {
-            $table->string('tamanho', 100)->default('0');
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nome');
+            $table->string('descricao');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AdicionaTamanhoNoProduto extends Migration
      */
     public function down()
     {
-        Schema::table('jogos', function($table) {
-            $table->dropColumn('tamanho');
-        });
+        Schema::dropIfExists('categorias');
     }
 }
